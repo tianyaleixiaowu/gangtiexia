@@ -1490,7 +1490,7 @@ const addUser = params => {
 
 
 var instance = __WEBPACK_IMPORTED_MODULE_0_axios___default.a.create({
-    baseURL: '/api',
+    baseURL: '/giftmall',
     timeout: 50000,
     headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -9200,4 +9200,4 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 /***/ })
 
 },[439]);
-//# sourceMappingURL=app.036867e2fb488fa26ee6.js.map
+//# sourceMappingURL=app.07de12845b512fd0d712.js.map
