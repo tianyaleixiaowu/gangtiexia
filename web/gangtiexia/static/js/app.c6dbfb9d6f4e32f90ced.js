@@ -3673,7 +3673,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     })
   }), 1), _vm._v(" "), _c('el-form-item', {
     staticStyle: {
-      "margin": "10px 0 0 60px"
+      "margin": "10px 0 0 120px"
     }
   }, [_c('el-button', {
     attrs: {
@@ -4527,8 +4527,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }), _vm._v(" "), _c('el-table-column', {
     attrs: {
       "align": "center",
+      "prop": "orderId",
+      "label": "平台包裹号"
+    }
+  }), _vm._v(" "), _c('el-table-column', {
+    attrs: {
+      "align": "center",
       "prop": "packNum",
-      "label": "包裹号"
+      "label": "快递单号"
     }
   }), _vm._v(" "), _c('el-table-column', {
     attrs: {
@@ -4553,6 +4559,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "align": "center",
       "prop": "orderNum",
       "label": "第三方订单号"
+    }
+  }), _vm._v(" "), _c('el-table-column', {
+    attrs: {
+      "align": "center",
+      "prop": "name",
+      "label": "快递名称"
     }
   }), _vm._v(" "), _c('el-table-column', {
     attrs: {
@@ -7763,7 +7775,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				farPrice1: this.farPrice1 * 100,
 				farPrice2: this.farPrice2 * 100,
 				farPrice3: this.farPrice3 * 100,
-				qrcode: this.qrcode
+				qrcode: this.qrcode,
+				domainName: this.domainName
 			}), {
 				headers: {
 					'Authorization': sessionStorage.getItem("token"),
@@ -9601,6 +9614,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -10211,4 +10226,4 @@ const getCount = state => {
 /***/ })
 
 },[575]);
-//# sourceMappingURL=app.747708bdd9cc29db4f55.js.map
+//# sourceMappingURL=app.c6dbfb9d6f4e32f90ced.js.map
