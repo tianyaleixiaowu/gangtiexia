@@ -7832,7 +7832,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				farPrice1: this.farPrice1 * 100,
 				farPrice2: this.farPrice2 * 100,
 				farPrice3: this.farPrice3 * 100,
-				qrcode: this.qrcode
+				qrcode: this.qrcode,
+				domainName: this.domainName
 			}), {
 				headers: {
 					'Authorization': sessionStorage.getItem("token"),
@@ -10226,4 +10227,4 @@ const getCount = state => {
 /***/ })
 
 },[575]);
-//# sourceMappingURL=app.c6dbfb9d6f4e32f90ced.js.map
+//# sourceMappingURL=app.d5ce6f7dcd3ebce5cc6a.js.map
