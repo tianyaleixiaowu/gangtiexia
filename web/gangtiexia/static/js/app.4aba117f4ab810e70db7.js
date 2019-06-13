@@ -1194,14 +1194,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }), _vm._v(" "), _c('el-table-column', {
     attrs: {
       "align": "center",
+      "prop": "state2",
       "label": "状态"
-    },
-    scopedSlots: _vm._u([{
-      key: "default",
-      fn: function(scope) {
-        return [(scope.row.state == 0) ? _c('span', [_vm._v("未处理")]) : _vm._e(), _vm._v(" "), (scope.row.state == -1) ? _c('span', [_vm._v("已处理")]) : _vm._e()]
-      }
-    }])
+    }
   }), _vm._v(" "), _c('el-table-column', {
     attrs: {
       "align": "center",
@@ -1461,14 +1456,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }), _vm._v(" "), _c('el-table-column', {
     attrs: {
       "align": "center",
-      "label": "状态"
-    },
-    scopedSlots: _vm._u([{
-      key: "default",
-      fn: function(scope) {
-        return [(scope.row.state == 0) ? _c('span', [_vm._v("未处理")]) : _vm._e(), _vm._v(" "), (scope.row.state == -1) ? _c('span', [_vm._v("已处理")]) : _vm._e()]
-      }
-    }])
+      "label": "状态",
+      "prop": "state2"
+    }
   }), _vm._v(" "), _c('el-table-column', {
     attrs: {
       "align": "center",
@@ -2752,14 +2742,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }), _vm._v(" "), _c('el-table-column', {
     attrs: {
       "align": "center",
+      "prop": "state2",
       "label": "状态"
-    },
-    scopedSlots: _vm._u([{
-      key: "default",
-      fn: function(scope) {
-        return [(scope.row.state == 0) ? _c('span', [_vm._v("未处理")]) : _vm._e(), _vm._v(" "), (scope.row.state == -1) ? _c('span', [_vm._v("已处理")]) : _vm._e()]
-      }
-    }])
+    }
   }), _vm._v(" "), _c('el-table-column', {
     attrs: {
       "align": "center",
@@ -4019,7 +4004,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('div', {
     staticClass: "balance"
-  }, [_c('div', [_vm._v("账户余额 " + _vm._s(_vm.paramsData.totalMoney / 100) + "元")]), _vm._v(" "), _c('div', {
+  }, [_c('div', [_vm._v("所有用户余额 " + _vm._s(_vm.paramsData.totalMoney / 100) + "元")]), _vm._v(" "), _c('div', {
     staticStyle: {
       "margin-top": "4px",
       "margin-bottom": "6px"
@@ -4040,9 +4025,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('h3', {
     style: ({
       marginTop: 2 + 'px',
-      marginBottom: 10 + 'px'
+      marginBottom: 10 + 'px',
+      marginTop: 10 + 'px'
     })
-  }, [_vm._v("累计奖金 " + _vm._s(_vm.paramsData.bonus / 100) + "元")]), _vm._v(" "), _c('el-button', {
+  }, [_vm._v("当日所有收益")]), _vm._v(" "), _c('el-button', {
+    style: ({
+      fontSize: 12 + 'px'
+    }),
     attrs: {
       "size": "mini"
     },
@@ -4063,39 +4052,29 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('div', {
     staticClass: "balance"
-  }, [_c('div', [_vm._v("账户余额 " + _vm._s(_vm.paramsData.totalMoney / 100) + "元")]), _vm._v(" "), _c('div', {
-    staticStyle: {
-      "margin-top": "4px",
-      "margin-bottom": "6px"
-    }
-  }, [_c('el-button', {
-    attrs: {
-      "size": "mini"
-    },
-    on: {
-      "click": _vm.goEmbody
-    }
-  }, [_vm._v("去提现")])], 1), _vm._v(" "), _c('div', [_vm._v("每月10号可申请提现上月奖金一次")])])]), _vm._v(" "), _c('el-col', {
+  }, [_c('div', {
+    style: ({
+      marginTop: 10 + 'px'
+    })
+  }, [_vm._v("管控客户数")]), _vm._v(" "), _c('div', {
+    style: ({
+      marginTop: 10 + 'px'
+    })
+  }, [_vm._v(_vm._s(0))])])]), _vm._v(" "), _c('el-col', {
     attrs: {
       "span": 12
     }
   }, [_c('div', {
     staticClass: "bonus"
-  }, [_c('h3', {
+  }, [_c('div', {
     style: ({
-      marginTop: 2 + 'px',
-      marginBottom: 10 + 'px'
+      marginTop: 10 + 'px'
     })
-  }, [_vm._v("累计奖金 " + _vm._s(_vm.paramsData.bonus / 100) + "元")]), _vm._v(" "), _c('el-button', {
-    attrs: {
-      "size": "mini"
-    },
-    on: {
-      "click": function($event) {
-        return _vm.$router.push('/running')
-      }
-    }
-  }, [_vm._v("查看流水")])], 1)])], 1)], 1), _vm._v(" "), _c('el-row', {
+  }, [_vm._v("分站数")]), _vm._v(" "), _c('div', {
+    style: ({
+      marginTop: 10 + 'px'
+    })
+  }, [_vm._v(_vm._s(0))])])])], 1)], 1), _vm._v(" "), _c('el-row', {
     attrs: {
       "gutter": 10
     }
@@ -6271,9 +6250,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 const token = sessionStorage.getItem("token");
 
@@ -6520,7 +6496,7 @@ const token = sessionStorage.getItem("token");
       // 绘制
       myChart.setOption({
         title: {
-          text: "新增注册数",
+          text: "今日包裹数",
           subtext: "近十五日数据    查看更多"
         },
         tooltip: {
@@ -8300,9 +8276,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -8358,6 +8331,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           for (var i = 0; i < that.dataList.length; i++) {
             that.dataList[i].createTime = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__utils_formData__["a" /* gettime */])(that.dataList[i].createTime);
           }
+          that.dataList.forEach(item => {
+            if (item.state == 0) {
+              item.state2 = '未处理';
+            } else if (item.state == 1) {
+              item.state2 = '已处理';
+            } else if (item.state == -1) {
+              item.state2 = '已驳回';
+            }
+          });
         }
       });
     },
@@ -9780,10 +9762,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data() {
@@ -9832,6 +9810,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         if (response.data.code == 200) {
           that.dataList = response.data.data.list;
           that.total = response.data.data.totalCount;
+
+          that.dataList.forEach(item => {
+            if (item.state == 0) {
+              item.state2 = '未处理';
+            } else if (item.state == 1) {
+              item.state2 = '已同意';
+            } else if (item.state == -1) {
+              item.state2 = '已拒绝';
+            }
+          });
         }
       });
     },
@@ -9971,9 +9959,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data() {
@@ -10023,6 +10008,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         if (response.data.code == 200) {
           that.dataList = response.data.data.list;
           that.total = response.data.data.totalCount;
+
+          that.dataList.forEach(item => {
+            if (item.state == 0) {
+              item.state2 = '未处理';
+            } else if (item.state == 1) {
+              item.state2 = '已同意';
+            } else if (item.state == -1) {
+              item.state2 = '已拒绝';
+            }
+          });
         }
       });
     },
@@ -10227,4 +10222,4 @@ const getCount = state => {
 /***/ })
 
 },[575]);
-//# sourceMappingURL=app.d5ce6f7dcd3ebce5cc6a.js.map
+//# sourceMappingURL=app.4aba117f4ab810e70db7.js.map
