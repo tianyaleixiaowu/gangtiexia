@@ -1673,13 +1673,25 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "align": "center",
       "prop": "bonus",
       "label": "分站奖金"
-    }
+    },
+    scopedSlots: _vm._u([{
+      key: "default",
+      fn: function(scope) {
+        return [_vm._v("\n                " + _vm._s(scope.row.bonus / 100) + " 元\n            ")]
+      }
+    }])
   }), _vm._v(" "), _c('el-table-column', {
     attrs: {
       "align": "center",
       "prop": "totalBonus",
       "label": "分站累计奖金"
-    }
+    },
+    scopedSlots: _vm._u([{
+      key: "default",
+      fn: function(scope) {
+        return [_vm._v("\n                " + _vm._s(scope.row.totalBonus / 100) + " 元\n            ")]
+      }
+    }])
   }), _vm._v(" "), _c('el-table-column', {
     attrs: {
       "align": "center",
@@ -1707,7 +1719,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }), _vm._v(" "), _c('el-table-column', {
     attrs: {
       "align": "center",
-      "prop": "totalBonus",
+      "prop": "totalPackCount",
       "label": "总包裹数"
     }
   }), _vm._v(" "), _c('el-table-column', {
@@ -9131,6 +9143,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -9991,8 +10011,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 nearPrice1: data.nearPrice1 / 100,
                 nearPrice2: data.nearPrice2 / 100,
                 nearPrice3: data.nearPrice3 / 100,
-                farPrice1: data.farPrice3 / 100,
-                farPrice2: data.farPrice3 / 100,
+                farPrice1: data.farPrice1 / 100,
+                farPrice2: data.farPrice2 / 100,
                 farPrice3: data.farPrice3 / 100
             };
             this.totalMoney = res.totalMoney / 100;
@@ -11541,4 +11561,4 @@ const getCount = state => {
 /***/ })
 
 },[577]);
-//# sourceMappingURL=app.92b3b20571543d95d40f.js.map
+//# sourceMappingURL=app.214f09b32605966cc681.js.map
