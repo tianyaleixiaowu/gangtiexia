@@ -8259,8 +8259,10 @@ var that = '';
 		},
 		send() {
 			let that = this;
+			let method = 'post';
 			if (that.$route.query.id) {
 				that.form.id = that.$route.query.id;
+				method = 'put';
 			} else {
 				delete that.form.id;
 			}
@@ -8269,11 +8271,10 @@ var that = '';
 				newary.push(that.fileList[i].url);
 			}
 			that.form.images = newary.join(',');
-
 			that.form.price = that.form.price * 100;
 			that.form.oldPrice = that.form.oldPrice * 100;
 			that.form.weight = that.form.weight * 1000;
-			this.axios.post('/goods', this.qs.stringify(that.form), {
+			this.axios[method]('/goods', this.qs.stringify(that.form), {
 				headers: {
 					'Content-Type': 'application/x-www-form-urlencoded'
 				}
@@ -11561,4 +11562,4 @@ const getCount = state => {
 /***/ })
 
 },[577]);
-//# sourceMappingURL=app.214f09b32605966cc681.js.map
+//# sourceMappingURL=app.2310d87d4b480d4a1d58.js.map
