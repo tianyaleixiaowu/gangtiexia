@@ -3724,14 +3724,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }), _vm._v(" "), _c('el-table-column', {
     attrs: {
-      "prop": "bonus",
+      "prop": "adminBonus",
       "label": "金额",
       "align": "center"
     },
     scopedSlots: _vm._u([{
       key: "default",
       fn: function(scope) {
-        return [_vm._v(" \n          " + _vm._s(scope.row.bonus / 100) + "元\n       ")]
+        return [_vm._v(" \n          " + _vm._s(scope.row.adminBonus / 100) + "元\n       ")]
       }
     }])
   })], 1), _vm._v(" "), _c('el-pagination', {
@@ -5410,7 +5410,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     scopedSlots: _vm._u([{
       key: "default",
       fn: function(scope) {
-        return [_vm._v("\n                " + _vm._s(scope.row.income / 100) + " 元\n            ")]
+        return [_vm._v("\n                " + _vm._s(scope.row.adminIncome / 100) + " 元\n            ")]
       }
     }])
   }), _vm._v(" "), _c('el-table-column', {
@@ -12183,4 +12183,4 @@ const getCount = state => {
 /***/ })
 
 },[578]);
-//# sourceMappingURL=app.e74c75b35717a370654a.js.map
+//# sourceMappingURL=app.a6bee0f47adfd02a4360.js.map
