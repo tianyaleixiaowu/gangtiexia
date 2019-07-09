@@ -918,7 +918,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       paddingLeft: 0
     }),
     attrs: {
-      "span": 16
+      "span": 24
     }
   }, [_c('div', {
     staticClass: "left"
@@ -1059,42 +1059,58 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "id": "use"
     }
-  })])])], 1)], 1)]), _vm._v(" "), _c('el-col', {
-    style: ({
-      padding: 0
-    }),
-    attrs: {
-      "span": 8
-    }
+  })])])], 1)], 1)])], 1)], 1), _vm._v(" "), _c('div', {
+    staticClass: "but-chart"
   }, [_c('div', {
-    staticClass: "right",
-    attrs: {
-      "id": "right"
-    }
-  }, [_c('div', {
-    attrs: {
-      "id": "chart"
-    }
-  })])])], 1)], 1), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1)])
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('div', {
     staticStyle: {
       "height": "332px"
     },
     attrs: {
       "id": "buttomChart"
     }
-  })])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('div', {
+  }), _vm._v(" "), _c('div', {
+    staticClass: "chart-tips"
+  }, [_c('el-date-picker', {
+    attrs: {
+      "type": "daterange",
+      "range-separator": "至",
+      "start-placeholder": "开始日期",
+      "end-placeholder": "结束日期"
+    },
+    model: {
+      value: (_vm.value1),
+      callback: function($$v) {
+        _vm.value1 = $$v
+      },
+      expression: "value1"
+    }
+  })], 1)]), _vm._v(" "), _c('div', {
+    staticClass: "but-chart"
+  }, [_c('div', {
     staticStyle: {
       "height": "332px"
     },
     attrs: {
       "id": "buttomTwoChart"
     }
-  })])
-}]}
+  }), _vm._v(" "), _c('div', {
+    staticClass: "chart-tips"
+  }, [_c('el-date-picker', {
+    attrs: {
+      "type": "daterange",
+      "range-separator": "至",
+      "start-placeholder": "开始日期",
+      "end-placeholder": "结束日期"
+    },
+    model: {
+      value: (_vm.value2),
+      callback: function($$v) {
+        _vm.value2 = $$v
+      },
+      expression: "value2"
+    }
+  })], 1)])])
+},staticRenderFns: []}
 
 /***/ }),
 
@@ -5665,6 +5681,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }), _vm._v(" "), _c('el-table-column', {
     attrs: {
+      "prop": "shopCode",
+      "label": "商品编码",
+      "align": "center",
+      "width": "100"
+    }
+  }), _vm._v(" "), _c('el-table-column', {
+    attrs: {
       "prop": "expressCompany",
       "align": "center",
       "label": "快递"
@@ -5996,53 +6019,109 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     },
     attrs: {
       "highlight-current-row": "",
-      "data": _vm.dataList
+      "data": _vm.dataList,
+      "border": ""
     }
   }, [_c('el-table-column', {
     attrs: {
       "align": "center",
+      "resizable": "",
       "prop": "webSiteName",
       "label": "分站名称"
     }
   }), _vm._v(" "), _c('el-table-column', {
     attrs: {
       "align": "center",
+      "resizable": "",
       "prop": "account",
       "label": "账号"
     }
   }), _vm._v(" "), _c('el-table-column', {
     attrs: {
       "align": "center",
+      "resizable": "",
       "prop": "farPlace",
       "label": "偏远预警"
     }
   }), _vm._v(" "), _c('el-table-column', {
     attrs: {
       "align": "center",
+      "resizable": "",
       "prop": "inviteCode",
       "label": "邀请人账号"
     }
   }), _vm._v(" "), _c('el-table-column', {
     attrs: {
       "align": "center",
+      "resizable": "",
       "prop": "qq",
       "label": "qq"
     }
   }), _vm._v(" "), _c('el-table-column', {
     attrs: {
       "align": "center",
+      "resizable": "",
       "prop": "wx",
       "label": "微信"
     }
   }), _vm._v(" "), _c('el-table-column', {
     attrs: {
       "align": "center",
+      "resizable": "",
       "prop": "vip2",
       "label": "用户等级"
     }
   }), _vm._v(" "), _c('el-table-column', {
     attrs: {
-      "width": "200px",
+      "align": "center",
+      "resizable": "",
+      "prop": "createTime",
+      "width": "150",
+      "formatter": _vm.dateFormat,
+      "label": "注册时间"
+    }
+  }), _vm._v(" "), _c('el-table-column', {
+    attrs: {
+      "align": "center",
+      "resizable": "",
+      "prop": "noLoginDate",
+      "label": "未登录天数"
+    }
+  }), _vm._v(" "), _c('el-table-column', {
+    attrs: {
+      "align": "center",
+      "resizable": "",
+      "prop": "activate",
+      "formatter": _vm.activateFormat,
+      "label": "激活状态"
+    }
+  }), _vm._v(" "), _c('el-table-column', {
+    attrs: {
+      "align": "center",
+      "resizable": "",
+      "prop": "totalMoney",
+      "formatter": _vm.moneyFormat,
+      "label": "余额（元）"
+    }
+  }), _vm._v(" "), _c('el-table-column', {
+    attrs: {
+      "align": "center",
+      "resizable": "",
+      "prop": "totalRechargeMoney",
+      "formatter": _vm.moneyFormat,
+      "label": "累计充值（元）"
+    }
+  }), _vm._v(" "), _c('el-table-column', {
+    attrs: {
+      "align": "center",
+      "resizable": "",
+      "prop": "totalPackCount",
+      "formatter": _vm.weightFormat,
+      "label": "累计单量（kg）"
+    }
+  }), _vm._v(" "), _c('el-table-column', {
+    attrs: {
+      "resizable": "",
       "align": "center",
       "label": "操作"
     },
@@ -7275,12 +7354,34 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 const token = sessionStorage.getItem("token");
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	data() {
 		return {
+			value1: [],
+			value2: [],
 			count: 0,
 			paramsData: {
 				totalMoney: 0, //账户余额
@@ -7305,10 +7406,6 @@ const token = sessionStorage.getItem("token");
 		this.showPage();
 		// 饼图初始化
 		this.areaAjax();
-		// 获取图表信息
-		this.endDay = this.getDate(0);
-		this.startDay = this.getDate(-14);
-		this.getDayStatistics(this.startDay, this.endDay);
 	},
 	methods: {
 		showPage() {
@@ -7425,7 +7522,7 @@ const token = sessionStorage.getItem("token");
 							show: false
 						}
 					},
-					data: [{ value: this.paramsData.smallCount, name: "大商家 日均50单以上" }, { value: this.paramsData.minCount, name: "中商家 日均20-50单以" }, { value: this.paramsData.bigCount, name: "小商家 日均小于20单" }]
+					data: [{ value: this.paramsData.bigCount, name: "大商家 日均50单以上" }, { value: this.paramsData.minCount, name: "中商家 日均20-50单以" }, { value: this.paramsData.smallCount, name: "小商家 日均小于20单" }]
 				}]
 			});
 		},
@@ -7472,7 +7569,7 @@ const token = sessionStorage.getItem("token");
 							show: false
 						}
 					},
-					data: [{ value: this.paramsData.never, name: "未使用过 从未下过单" }, { value: this.paramsData.has, name: "使用中 近7日下过单" }, { value: this.paramsData.using, name: "暂停使用 使用过,近7日未下单" }]
+					data: [{ value: this.paramsData.never, name: "未使用过 从未下过单" }, { value: this.paramsData.using, name: "使用中 近7日下过单" }, { value: this.paramsData.has, name: "暂停使用 使用过,近7日未下单" }]
 				}]
 			});
 		}
@@ -9883,6 +9980,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -9910,6 +10014,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     subscriber1Dia: __WEBPACK_IMPORTED_MODULE_0__subscriber1Dia___default.a
   },
   methods: {
+    dateFormat(row, column) {
+      var date = row[column.property];
+      if (date === undefined) {
+        return "";
+      }
+      return this.$moment(date).format("YYYY-MM-DD HH:mm:ss");
+    },
+    activateFormat(row, column) {
+      var activate = row[column.property];
+      return activate ? '已激活' : '未激活';
+    },
+    moneyFormat(row, column) {
+      var money = row[column.property];
+      if (money === undefined) {
+        return 0;
+      }
+      return money / 100;
+    },
+    weightFormat(row, column) {
+      var weight = row[column.property];
+      if (weight === undefined) {
+        return 0;
+      }
+      return weight / 1000;
+    },
     editClick(row) {
       this.rowData = row;
       this.editState = !this.editState;
@@ -10185,6 +10314,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_xlsx__ = __webpack_require__(482);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_xlsx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_xlsx__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_timeFormate__ = __webpack_require__(581);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -11968,38 +12103,58 @@ const { date } = __webpack_require__(1111);
     data() {
         return {
             endDay: '',
-            startDay: ''
+            startDay: '',
+            todayRegisterNumber: 0,
+            todayPackageNumber: 0
+
         };
+    },
+    mounted() {
+        // 获取图表信息
+        this.endDay = this.getDate(0);
+        this.startDay = this.getDate(-14);
+        this.value1 = this.value2 = [this.startDay, this.endDay];
+        this.getDayStatistics(this.startDay, this.endDay, true, true);
+    },
+    watch: {
+        value1(newV, oldV) {
+            if (Array.isArray(newV) && newV[0]) {
+                const startDay = this.$moment(new Date(newV[0])).format('YYYY-MM-DD');
+                const endDay = this.$moment(new Date(newV[1])).format('YYYY-MM-DD');
+                this.getDayStatistics(startDay, endDay, true, false);
+            }
+        },
+        value2(newV, oldV) {
+            if (Array.isArray(newV) && newV[0]) {
+                const startDay = this.$moment(new Date(newV[0])).format('YYYY-MM-DD');
+                const endDay = this.$moment(new Date(newV[1])).format('YYYY-MM-DD');
+                this.getDayStatistics(startDay, endDay, false, true);
+            }
+        }
     },
     methods: {
 
         //最底下的折线图
-        buttomTwoChart(data) {
+        buttomTwoChart(data, num) {
             // 创建一个实例
             let myChart = this.$echarts.init(document.getElementById("buttomTwoChart"));
 
             // 绘制
             myChart.setOption({
                 title: {
-                    text: "新增包裹",
-                    subtext: "近十五日数据    查看更多"
+                    text: `今日包裹数${num}包`
                 },
                 tooltip: {
                     trigger: "axis"
                 },
                 legend: {
-                    data: ["新增注册"]
+                    data: ["新增包裹"]
                 },
                 grid: {
                     left: "3%",
                     right: "4%",
                     bottom: "3%",
                     containLabel: true
-                },
-                toolbox: {
-                    feature: {
-                        saveAsImage: {}
-                    }
                 },
                 xAxis: {
                     type: "category",
@@ -12021,15 +12176,14 @@ const { date } = __webpack_require__(1111);
             });
         },
         //底部折线图
-        buttomChart(data) {
+        buttomChart(data, num) {
             // 创建一个实例
             let myChart = this.$echarts.init(document.getElementById("buttomChart"));
 
             // 绘制
             myChart.setOption({
                 title: {
-                    text: "今日包裹数",
-                    subtext: "近十五日数据    查看更多"
+                    text: `新增注册数${num}人`
                 },
                 tooltip: {
                     trigger: "axis"
@@ -12042,11 +12196,6 @@ const { date } = __webpack_require__(1111);
                     right: "4%",
                     bottom: "3%",
                     containLabel: true
-                },
-                toolbox: {
-                    feature: {
-                        saveAsImage: {}
-                    }
                 },
                 xAxis: {
                     type: "category",
@@ -12096,15 +12245,18 @@ const { date } = __webpack_require__(1111);
                 }]
             });
         },
-        getDayStatistics(begin, end) {
+        getDayStatistics(begin, end, isDrawOne, isDrawTwo) {
             this.$axios.get(`/webSite/dayStatistics?begin=${begin}&end=${end}`).then(res => {
-                console.log(res.data);
                 const data = res.data.data;
                 const kvData = this.obj2Arr(data.newUserMap);
                 const kvData2 = this.obj2Arr(data.packMap);
-                this.buttomChart(kvData);
-                this.buttomTwoChart(kvData2);
-                this.rightChant();
+                if (isDrawOne && isDrawTwo) {
+                    this.todayRegisterNumber = kvData.valArr[kvData.valArr.length - 1];
+                    this.todayPackageNumber = kvData2.valArr[kvData2.valArr.length - 1];
+                }
+                if (isDrawOne) this.buttomChart(kvData, this.todayRegisterNumber);
+                if (isDrawTwo) this.buttomTwoChart(kvData2, this.todayPackageNumber);
+                // this.rightChant()
             });
         },
         obj2Arr(obj) {
@@ -12114,7 +12266,6 @@ const { date } = __webpack_require__(1111);
             keyArr.forEach(item => {
                 valArr.push(obj[item]);
             });
-            console.log(keyArr, valArr);
             return { keyArr, valArr };
         },
         getDate(num) {
@@ -12218,4 +12369,4 @@ const getCount = state => {
 /***/ })
 
 },[578]);
-//# sourceMappingURL=app.a9374bb70c5d58087d6f.js.map
+//# sourceMappingURL=app.bbd368a88c5fb5377fa2.js.map
