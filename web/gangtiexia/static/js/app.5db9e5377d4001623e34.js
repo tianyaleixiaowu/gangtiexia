@@ -6116,8 +6116,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "align": "center",
       "resizable": "",
       "prop": "totalPackCount",
-      "formatter": _vm.weightFormat,
-      "label": "累计单量（kg）"
+      "label": "累计单量"
     }
   }), _vm._v(" "), _c('el-table-column', {
     attrs: {
@@ -12369,4 +12368,4 @@ const getCount = state => {
 /***/ })
 
 },[578]);
-//# sourceMappingURL=app.bbd368a88c5fb5377fa2.js.map
+//# sourceMappingURL=app.5db9e5377d4001623e34.js.map
