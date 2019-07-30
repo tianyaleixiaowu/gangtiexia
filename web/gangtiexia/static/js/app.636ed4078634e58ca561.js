@@ -6,6 +6,7 @@ webpackJsonp([1],{
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = gettime;
 function gettime(t) {
+  if (!t) return 'invalid time';
   var _time = new Date(t);
   var year = _time.getFullYear(); //2017
   var month = _time.getMonth() > 8 ? _time.getMonth() + 1 : '0' + (_time.getMonth() + 1); //7
@@ -4485,6 +4486,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }), _vm._v(" "), _c('el-table-column', {
     attrs: {
       "align": "center",
+      "prop": "expressCompany",
+      "label": "快递公司"
+    }
+  }), _vm._v(" "), _c('el-table-column', {
+    attrs: {
+      "align": "center",
       "label": "操作"
     },
     scopedSlots: _vm._u([{
@@ -4496,7 +4503,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           },
           on: {
             "click": function($event) {
-              return _vm.chuli(scope.row.id, true)
+              return _vm.chuli(scope.row, true)
             }
           }
         }, [_vm._v("处理")]), _vm._v(" "), _c('el-button', {
@@ -4505,7 +4512,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           },
           on: {
             "click": function($event) {
-              return _vm.chuli(scope.row.id, false)
+              return _vm.chuli(scope.row, false)
             }
           }
         }, [_vm._v("拒绝")])]
@@ -4548,6 +4555,17 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.newPackNum = $$v
       },
       expression: "newPackNum"
+    }
+  }), _vm._v("\n      快递公司："), _c('el-input', {
+    attrs: {
+      "disabled": ""
+    },
+    model: {
+      value: (_vm.row.expressCompany),
+      callback: function($$v) {
+        _vm.$set(_vm.row, "expressCompany", $$v)
+      },
+      expression: "row.expressCompany"
     }
   }), _vm._v(" "), _c('span', {
     staticClass: "dialog-footer",
@@ -4988,7 +5006,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('el-form-item', {
     attrs: {
-      "label": "快递单号"
+      "label": "包裹号"
     }
   }, [_c('el-input', {
     model: {
@@ -5235,7 +5253,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('el-form-item', {
     attrs: {
-      "label": "平台订单号"
+      "label": "包裹号"
     }
   }, [_c('el-input', {
     model: {
@@ -9594,7 +9612,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       webSiteId: "",
       chuliDiv: false,
       id: '',
-      newPackNum: ''
+      newPackNum: '',
+      row: {}
     };
   },
   methods: {
@@ -9654,11 +9673,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.page = val;
       this.shousuo();
     },
-    chuli(id, state) {
+    chuli(row, state) {
       let that = this;
       if (state) {
-        that.id = id;
+        that.id = row.id;
         that.chuliDiv = true;
+        that.row = row;
       } else {
         this.$confirm("请确认此拒绝, 是否继续?", "提示", {
           confirmButtonText: "确定",
@@ -9688,7 +9708,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     send() {
       let that = this;
-      that.axios.put("/queryPack", that.qs.stringify({ id: that.id, state: 1, newPackNum: that.newPackNum }), {
+      that.axios.put("/queryPack", that.qs.stringify({ id: that.id, state: 1, newPackNum: that.newPackNum, expressCompany: that.expressCompany }), {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded"
         }
@@ -10645,6 +10665,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     }
   },
   methods: {
+    handleClose() {},
     datechange(e) {
       this.begin = e.split("至")[0];
       this.end = e.split("至")[1];
@@ -12288,4 +12309,4 @@ const getCount = state => {
 /***/ })
 
 },[578]);
-//# sourceMappingURL=app.7d79b9312aba9a7e9e74.js.map
+//# sourceMappingURL=app.636ed4078634e58ca561.js.map
