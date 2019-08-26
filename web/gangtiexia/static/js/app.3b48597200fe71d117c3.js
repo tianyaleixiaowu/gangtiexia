@@ -3639,7 +3639,26 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       },
       expression: "password"
     }
-  })], 1)], 1), _vm._v(" "), _c('div', {
+  })], 1)], 1), _vm._v(" "), _c('p', {
+    staticClass: "titlefg"
+  }, [_vm._v("分享次数设置（满足数量即可升级VIP）")]), _vm._v(" "), _c('el-form-item', {
+    staticStyle: {
+      "margin": "10px",
+      "width": "30%",
+      "float": "left"
+    },
+    attrs: {
+      "label": "分享次数设置"
+    }
+  }, [_c('el-input', {
+    model: {
+      value: (_vm.shareCount),
+      callback: function($$v) {
+        _vm.shareCount = $$v
+      },
+      expression: "shareCount"
+    }
+  })], 1), _vm._v(" "), _c('div', {
     staticStyle: {
       "margin-top": "20px",
       "width": "100%",
@@ -8959,245 +8978,246 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	data() {
-		return {
-			dialogImageUrl: '',
-			fileList: [],
-			dialogVisible: false,
-			id: '',
-			domainName: '',
-			name: '',
-			contactPerson: '',
-			mobile: '',
-			companyName: '',
-			address: '',
-			kefuMobile: '',
-			wx: '',
-			qq: '',
-			nearPrice1: '',
-			nearPrice2: '',
-			nearPrice3: '',
-			farPrice1: '',
-			farPrice2: '',
-			farPrice3: '',
-			account: '',
-			password: '',
-			addUploadUrl: '',
-			qrcode: '',
-			region: '',
-			delivery: false,
-			type: [],
-			resource: '',
-			desc: ''
-		};
-	},
-	mounted() {
-		if (this.$route.query.id) {
-			this.getDetail();
-			this.id = this.$route.query.id;
-		}
-	},
-	methods: {
-		getDetail() {
-			let that = this;
-			this.axios.get("/webSite/" + that.$route.query.id, {
-				headers: {
-					"Content-Type": "application/x-www-form-urlencoded"
-				}
-			}).then(function (response) {
-				if (response.data.code == 200) {
-					that.account = response.data.data.account;
-					that.password = "";
-					that.qq = response.data.data.qq;
-					that.wx = response.data.data.wx;
-					that.name = response.data.data.name;
-					that.contactPerson = response.data.data.contactPerson;
-					that.mobile = response.data.data.mobile;
-					that.companyName = response.data.data.companyName;
-					that.domainName = response.data.data.domainName;
-					that.address = response.data.data.address;
-					that.kefuMobile = response.data.data.kefuMobile;
-					that.nearPrice1 = response.data.data.nearPrice1 / 100;
-					that.nearPrice2 = response.data.data.nearPrice2 / 100;
-					that.nearPrice3 = response.data.data.nearPrice3 / 100;
-					that.farPrice1 = response.data.data.farPrice1 / 100;
-					that.farPrice2 = response.data.data.farPrice2 / 100;
-					that.farPrice3 = response.data.data.farPrice3 / 100;
-					that.qrcode = response.data.data.qrcode;
-					that.fileList = [{ name: '1', url: response.data.data.qrcode }];
-				}
-			});
-		},
-		register() {
-			let that = this;
-			if (that.domainName == '') {
-				that.$message({ message: '请输入域名', type: 'warning' });
-				return;
-			}
-			if (that.nearPrice1 == '' || that.nearPrice2 == '' || that.nearPrice3 == '' || that.farPrice1 == '' || that.farPrice2 == '' || that.farPrice3 == '') {
-				that.$message({ message: '价格设置必填', type: 'warning' });
-				return;
-			}
-			if (that.account == '') {
-				that.$message({ message: '请输入账号', type: 'warning' });
-				return;
-			}
-			if (that.password == "") {
-				that.$message({ message: '请填写密码', type: 'warning' });
-				return;
-			}
-			this.qrcode = this.fileList[0].url;
-			this.axios.post('/webSite', this.qs.stringify({
-				account: this.account,
-				password: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__utils_md5__["a" /* hex_md5 */])(this.password),
-				qq: this.qq,
-				wx: this.wx,
-				name: this.name,
-				contactPerson: this.contactPerson,
-				mobile: this.mobile,
-				companyName: this.companyName,
-				address: this.address,
-				kefuMobile: this.kefuMobile,
-				nearPrice1: this.nearPrice1 * 100,
-				nearPrice2: this.nearPrice2 * 100,
-				nearPrice3: this.nearPrice3 * 100,
-				farPrice1: this.farPrice1 * 100,
-				farPrice2: this.farPrice2 * 100,
-				farPrice3: this.farPrice3 * 100,
-				qrcode: this.qrcode,
-				domainName: this.domainName
-			}), {
-				headers: {
-					'Content-Type': 'application/x-www-form-urlencoded'
-				}
-			}).then(function (response) {
-				if (response.data.code == 200) {
-					//登陆成功    
-					//  this.clearForm();    
-					that.$message({
-						message: '创建成功',
-						type: 'success'
-					});
-					that.$router.push({ path: '/user' });
-				}
-			});
-		},
-		edit() {
-			let that = this;
-			if (that.domainName == '') {
-				that.$message({ message: '请输入域名', type: 'warning' });
-				return;
-			}
-			if (that.nearPrice1 == '' || that.nearPrice2 == '' || that.nearPrice3 == '' || that.farPrice1 == '' || that.farPrice2 == '' || that.farPrice3 == '') {
-				that.$message({ message: '价格设置必填', type: 'warning' });
-				return;
-			}
-			if (that.account == '') {
-				that.$message({ message: '请输入账号', type: 'warning' });
-				return;
-			}
-			if (that.password == "") {
-				that.$message({ message: '请填写密码', type: 'warning' });
-				return;
-			}
-			this.qrcode = this.fileList[0].url;
-			this.axios.put('/webSite', this.qs.stringify({
-				id: this.id,
-				account: this.account,
-				password: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__utils_md5__["a" /* hex_md5 */])(this.password),
-				qq: this.qq,
-				wx: this.wx,
-				name: this.name,
-				contactPerson: this.contactPerson,
-				mobile: this.mobile,
-				companyName: this.companyName,
-				address: this.address,
-				kefuMobile: this.kefuMobile,
-				nearPrice1: this.nearPrice1 * 100,
-				nearPrice2: this.nearPrice2 * 100,
-				nearPrice3: this.nearPrice3 * 100,
-				farPrice1: this.farPrice1 * 100,
-				farPrice2: this.farPrice2 * 100,
-				farPrice3: this.farPrice3 * 100,
-				qrcode: this.qrcode,
-				domainName: this.domainName
-			}), {
-				headers: {
-					'Content-Type': 'application/x-www-form-urlencoded'
-				}
-			}).then(function (response) {
-				if (response.data.code == 200) {
-					//登陆成功    
-					//  this.clearForm();    
-					that.$message({
-						message: '修改成功',
-						type: 'success'
-					});
-					that.$router.push({ path: '/user' });
-				}
-			});
-		},
-		fileChange(file, fileList) {
-			let that = this;
-			this.FileChange(file, res => {
-				console.log(res.url);
-				that.fileList.push({ name: "1", url: res.url });
-			});
-		},
-		FileChange(e, callback) {
-			if (!e) return;
-			let file = e.raw;
-			if (!file) return;
-			let param = new FormData();
-			param.append('chunk', '0');
-			param.append('chunks', '1');
-			param.append('file', file, file.name);
-			let config = {
-				headers: {
-					'Content-Type': 'multipart/form-data'
-				}
-			};
-			this.axios({
-				method: "GET",
-				headers: {
-					"Content-Type": "multipart/form-data"
-				},
-				url: "/qiniu/token"
-			}).then(res => {
-				let token = res.data.data;
-				param.append('token', token);
-				this.Uploading(param, config, callback);
-				return;
-			});
-		},
-		Uploading(param, config, callback) {
-			this.axios.post('http://upload-z1.qiniup.com/', param, config).then(res => {
-				let params = {
-					message: 'ok',
-					url: `http://qiniu.tianyalei.com/${res.data.key}`
-				};
-				if (callback) callback(params);
-			}).catch(err => {
-				console.log(err, 'pppp');
-			});
-		},
-		handleRemove(file, fileList) {
-			console.log(file);
-			for (var i = 0; i < this.fileList.length; i++) {
-				if (file.url == this.fileList[i].url) {
-					this.fileList.splice(i, 1);
-				}
-			}
-		},
-		handlePictureCardPreview(file) {
-			this.dialogImageUrl = file.url;
-			this.dialogVisible = true;
-		}
-	}
+  data() {
+    return {
+      dialogImageUrl: "",
+      fileList: [],
+      dialogVisible: false,
+      id: "",
+      domainName: "",
+      name: "",
+      contactPerson: "",
+      mobile: "",
+      companyName: "",
+      address: "",
+      kefuMobile: "",
+      wx: "",
+      qq: "",
+      nearPrice1: "",
+      nearPrice2: "",
+      nearPrice3: "",
+      farPrice1: "",
+      farPrice2: "",
+      farPrice3: "",
+      account: "",
+      password: "",
+      addUploadUrl: "",
+      qrcode: "",
+      region: "",
+      delivery: false,
+      type: [],
+      resource: "",
+      desc: ""
+    };
+  },
+  mounted() {
+    if (this.$route.query.id) {
+      this.getDetail();
+      this.id = this.$route.query.id;
+    }
+  },
+  methods: {
+    getDetail() {
+      let that = this;
+      this.axios.get("/webSite/" + that.$route.query.id, {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        }
+      }).then(function (response) {
+        if (response.data.code == 200) {
+          that.account = response.data.data.account;
+          that.password = "";
+          that.qq = response.data.data.qq;
+          that.wx = response.data.data.wx;
+          that.name = response.data.data.name;
+          that.contactPerson = response.data.data.contactPerson;
+          that.mobile = response.data.data.mobile;
+          that.companyName = response.data.data.companyName;
+          that.domainName = response.data.data.domainName;
+          that.address = response.data.data.address;
+          that.kefuMobile = response.data.data.kefuMobile;
+          that.nearPrice1 = response.data.data.nearPrice1 / 100;
+          that.nearPrice2 = response.data.data.nearPrice2 / 100;
+          that.nearPrice3 = response.data.data.nearPrice3 / 100;
+          that.farPrice1 = response.data.data.farPrice1 / 100;
+          that.farPrice2 = response.data.data.farPrice2 / 100;
+          that.farPrice3 = response.data.data.farPrice3 / 100;
+          that.qrcode = response.data.data.qrcode;
+          that.fileList = [{ name: "1", url: response.data.data.qrcode }];
+        }
+      });
+    },
+    register() {
+      let that = this;
+      if (that.domainName == "") {
+        that.$message({ message: "请输入域名", type: "warning" });
+        return;
+      }
+      if (that.nearPrice1 == "" || that.nearPrice2 == "" || that.nearPrice3 == "" || that.farPrice1 == "" || that.farPrice2 == "" || that.farPrice3 == "") {
+        that.$message({ message: "价格设置必填", type: "warning" });
+        return;
+      }
+      if (that.account == "") {
+        that.$message({ message: "请输入账号", type: "warning" });
+        return;
+      }
+      if (that.password == "") {
+        that.$message({ message: "请填写密码", type: "warning" });
+        return;
+      }
+      this.qrcode = this.fileList[0].url;
+      this.axios.post("/webSite", this.qs.stringify({
+        account: this.account,
+        password: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__utils_md5__["a" /* hex_md5 */])(this.password),
+        qq: this.qq,
+        wx: this.wx,
+        name: this.name,
+        contactPerson: this.contactPerson,
+        mobile: this.mobile,
+        companyName: this.companyName,
+        address: this.address,
+        kefuMobile: this.kefuMobile,
+        nearPrice1: this.nearPrice1 * 100,
+        nearPrice2: this.nearPrice2 * 100,
+        nearPrice3: this.nearPrice3 * 100,
+        farPrice1: this.farPrice1 * 100,
+        farPrice2: this.farPrice2 * 100,
+        farPrice3: this.farPrice3 * 100,
+        qrcode: this.qrcode,
+        domainName: this.domainName
+      }), {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        }
+      }).then(function (response) {
+        if (response.data.code == 200) {
+          //登陆成功
+          //  this.clearForm();
+          that.$message({
+            message: "创建成功",
+            type: "success"
+          });
+          that.$router.push({ path: "/user" });
+        }
+      });
+    },
+    edit() {
+      let that = this;
+      if (that.domainName == "") {
+        that.$message({ message: "请输入域名", type: "warning" });
+        return;
+      }
+      if (that.nearPrice1 == "" || that.nearPrice2 == "" || that.nearPrice3 == "" || that.farPrice1 == "" || that.farPrice2 == "" || that.farPrice3 == "") {
+        that.$message({ message: "价格设置必填", type: "warning" });
+        return;
+      }
+      if (that.account == "") {
+        that.$message({ message: "请输入账号", type: "warning" });
+        return;
+      }
+      if (that.password == "") {
+        that.$message({ message: "请填写密码", type: "warning" });
+        return;
+      }
+      this.qrcode = this.fileList[0].url;
+      this.axios.put("/webSite", this.qs.stringify({
+        id: this.id,
+        account: this.account,
+        password: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__utils_md5__["a" /* hex_md5 */])(this.password),
+        qq: this.qq,
+        wx: this.wx,
+        name: this.name,
+        contactPerson: this.contactPerson,
+        mobile: this.mobile,
+        companyName: this.companyName,
+        address: this.address,
+        kefuMobile: this.kefuMobile,
+        nearPrice1: this.nearPrice1 * 100,
+        nearPrice2: this.nearPrice2 * 100,
+        nearPrice3: this.nearPrice3 * 100,
+        farPrice1: this.farPrice1 * 100,
+        farPrice2: this.farPrice2 * 100,
+        farPrice3: this.farPrice3 * 100,
+        qrcode: this.qrcode,
+        domainName: this.domainName
+      }), {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        }
+      }).then(function (response) {
+        if (response.data.code == 200) {
+          //登陆成功
+          //  this.clearForm();
+          that.$message({
+            message: "修改成功",
+            type: "success"
+          });
+          that.$router.push({ path: "/user" });
+        }
+      });
+    },
+    fileChange(file, fileList) {
+      let that = this;
+      this.FileChange(file, res => {
+        console.log(res.url);
+        that.fileList.push({ name: "1", url: res.url });
+      });
+    },
+    FileChange(e, callback) {
+      if (!e) return;
+      let file = e.raw;
+      if (!file) return;
+      let param = new FormData();
+      param.append("chunk", "0");
+      param.append("chunks", "1");
+      param.append("file", file, file.name);
+      let config = {
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      };
+      this.axios({
+        method: "GET",
+        headers: {
+          "Content-Type": "multipart/form-data"
+        },
+        url: "/qiniu/token"
+      }).then(res => {
+        let token = res.data.data;
+        param.append("token", token);
+        this.Uploading(param, config, callback);
+        return;
+      });
+    },
+    Uploading(param, config, callback) {
+      this.axios.post("http://upload-z1.qiniup.com/", param, config).then(res => {
+        let params = {
+          message: "ok",
+          url: `http://qiniu.tianyalei.com/${res.data.key}`
+        };
+        if (callback) callback(params);
+      }).catch(err => {
+        console.log(err, "pppp");
+      });
+    },
+    handleRemove(file, fileList) {
+      console.log(file);
+      for (var i = 0; i < this.fileList.length; i++) {
+        if (file.url == this.fileList[i].url) {
+          this.fileList.splice(i, 1);
+        }
+      }
+    },
+    handlePictureCardPreview(file) {
+      this.dialogImageUrl = file.url;
+      this.dialogVisible = true;
+    }
+  }
 });
 
 /***/ }),
@@ -12309,4 +12329,4 @@ const getCount = state => {
 /***/ })
 
 },[578]);
-//# sourceMappingURL=app.636ed4078634e58ca561.js.map
+//# sourceMappingURL=app.3b48597200fe71d117c3.js.map
