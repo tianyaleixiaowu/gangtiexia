@@ -8979,6 +8979,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -9012,7 +9018,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       delivery: false,
       type: [],
       resource: "",
-      desc: ""
+      desc: "",
+      shareCount: ""
     };
   },
   mounted() {
@@ -9030,25 +9037,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
       }).then(function (response) {
         if (response.data.code == 200) {
-          that.account = response.data.data.account;
+          const data = response.data.data;
+          that.account = data.account;
           that.password = "";
-          that.qq = response.data.data.qq;
-          that.wx = response.data.data.wx;
-          that.name = response.data.data.name;
-          that.contactPerson = response.data.data.contactPerson;
-          that.mobile = response.data.data.mobile;
-          that.companyName = response.data.data.companyName;
-          that.domainName = response.data.data.domainName;
-          that.address = response.data.data.address;
-          that.kefuMobile = response.data.data.kefuMobile;
-          that.nearPrice1 = response.data.data.nearPrice1 / 100;
-          that.nearPrice2 = response.data.data.nearPrice2 / 100;
-          that.nearPrice3 = response.data.data.nearPrice3 / 100;
-          that.farPrice1 = response.data.data.farPrice1 / 100;
-          that.farPrice2 = response.data.data.farPrice2 / 100;
-          that.farPrice3 = response.data.data.farPrice3 / 100;
-          that.qrcode = response.data.data.qrcode;
-          that.fileList = [{ name: "1", url: response.data.data.qrcode }];
+          that.qq = data.qq;
+          that.wx = data.wx;
+          that.name = data.name;
+          that.contactPerson = data.contactPerson;
+          that.mobile = data.mobile;
+          that.companyName = data.companyName;
+          that.domainName = data.domainName;
+          that.address = data.address;
+          that.kefuMobile = data.kefuMobile;
+          that.nearPrice1 = data.nearPrice1 / 100;
+          that.nearPrice2 = data.nearPrice2 / 100;
+          that.nearPrice3 = data.nearPrice3 / 100;
+          that.farPrice1 = data.farPrice1 / 100;
+          that.farPrice2 = data.farPrice2 / 100;
+          that.farPrice3 = data.farPrice3 / 100;
+          that.qrcode = data.qrcode;
+          that.fileList = [{ name: "1", url: data.qrcode }];
+          that.shareCount = data.shareCount;
         }
       });
     },
@@ -9070,6 +9079,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         that.$message({ message: "请填写密码", type: "warning" });
         return;
       }
+      if (this.shareCount == "") {
+        this.$message({ message: "请填写分享次数", type: "warning" });
+        return;
+      }
       this.qrcode = this.fileList[0].url;
       this.axios.post("/webSite", this.qs.stringify({
         account: this.account,
@@ -9089,7 +9102,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         farPrice2: this.farPrice2 * 100,
         farPrice3: this.farPrice3 * 100,
         qrcode: this.qrcode,
-        domainName: this.domainName
+        domainName: this.domainName,
+        shareCount: this.shareCount
       }), {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded"
@@ -12329,4 +12343,4 @@ const getCount = state => {
 /***/ })
 
 },[578]);
-//# sourceMappingURL=app.3b48597200fe71d117c3.js.map
+//# sourceMappingURL=app.75f48fc1bd1c081b24bd.js.map
