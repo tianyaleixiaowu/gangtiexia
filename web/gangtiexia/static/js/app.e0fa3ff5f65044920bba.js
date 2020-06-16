@@ -5595,6 +5595,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('el-table-column', {
     attrs: {
+      "label": "id"
+    },
+    scopedSlots: _vm._u([{
+      key: "default",
+      fn: function(scope) {
+        return [_vm._v("\n                  " + _vm._s(scope.row.id) + "\n              ")]
+      }
+    }])
+  }), _vm._v(" "), _c('el-table-column', {
+    attrs: {
       "label": "商品",
       "width": "400"
     },
@@ -8583,7 +8593,7 @@ var that = '';
 				newary.push(that.fileList[i].url);
 			}
 			that.form.images = newary.join(',');
-			that.form.price = Math.floor(that.form.price * 100);
+			that.form.price = Math.round(that.form.price * 100);
 			that.form.oldPrice = that.form.oldPrice * 100;
 			that.form.weight = that.form.weight * 1000;
 			this.axios[method]('/goods', this.qs.stringify(that.form), {
@@ -8610,6 +8620,11 @@ var that = '';
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
 //
 //
 //
@@ -9095,12 +9110,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         companyName: this.companyName,
         address: this.address,
         kefuMobile: this.kefuMobile,
-        nearPrice1: this.nearPrice1 * 100,
-        nearPrice2: this.nearPrice2 * 100,
-        nearPrice3: this.nearPrice3 * 100,
-        farPrice1: this.farPrice1 * 100,
-        farPrice2: this.farPrice2 * 100,
-        farPrice3: this.farPrice3 * 100,
+        nearPrice1: Math.round(this.nearPrice1 * 100),
+        nearPrice2: Math.round(this.nearPrice2 * 100),
+        nearPrice3: Math.round(this.nearPrice3 * 100),
+        farPrice1: Math.round(this.farPrice1 * 100),
+        farPrice2: Math.round(this.farPrice2 * 100),
+        farPrice3: Math.round(this.farPrice3 * 100),
         qrcode: this.qrcode,
         domainName: this.domainName,
         shareCount: this.shareCount
@@ -9151,12 +9166,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         companyName: this.companyName,
         address: this.address,
         kefuMobile: this.kefuMobile,
-        nearPrice1: this.nearPrice1 * 100,
-        nearPrice2: this.nearPrice2 * 100,
-        nearPrice3: this.nearPrice3 * 100,
-        farPrice1: this.farPrice1 * 100,
-        farPrice2: this.farPrice2 * 100,
-        farPrice3: this.farPrice3 * 100,
+        nearPrice1: Math.round(this.nearPrice1 * 100),
+        nearPrice2: Math.round(this.nearPrice2 * 100),
+        nearPrice3: Math.round(this.nearPrice3 * 100),
+        farPrice1: Math.round(this.farPrice1 * 100),
+        farPrice2: Math.round(this.farPrice2 * 100),
+        farPrice3: Math.round(this.farPrice3 * 100),
         qrcode: this.qrcode,
         domainName: this.domainName
       }), {
@@ -12343,4 +12358,4 @@ const getCount = state => {
 /***/ })
 
 },[578]);
-//# sourceMappingURL=app.c51a5f136c59c374f282.js.map
+//# sourceMappingURL=app.e0fa3ff5f65044920bba.js.map
